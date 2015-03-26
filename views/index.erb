@@ -7,7 +7,7 @@
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </head>
 <body>
-    
+    <center>
     <form action="/dj" method="post">
         <p>URL<input type="text" name="url"></p>
         <p><input type="submit" value="投稿"></p>
@@ -35,9 +35,11 @@
           // APIを叩いてvideoIDを取得              
             
             videoIdJSONStr = $.get("/api/dj");
+            console.log(videoIdJSONStr);
             videoIdJSON = $.parseJSON(videoIdJSONStr);
-            videoId = parseJson(videoIdJSON);
-            console.log(videoId);
+//            console.log(videoIdJSON);
+//            videoId = parseJson(videoIdJSON);
+            console.log(videoIdJSON);
           
         player = new YT.Player('player', {
           height: '390',
@@ -69,5 +71,7 @@
         player.stopVideo();
       }
     </script>
+    
+    </center>
 </body>
 </html>
