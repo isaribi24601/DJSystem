@@ -31,10 +31,10 @@ end
 
 get '/api/dj' do
     # Songから最初の１件を取り出す
-    data = Song.select('url').first
-    data.to_json
+   data = Song.first[:url]
+    p data
+    data
+    
 end
-
-
 
     
