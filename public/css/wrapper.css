@@ -1,0 +1,9 @@
+.container {
+    position: absolute;
+    top: 0px;
+    left: 40%;
+    margin-left: -250px;
+    width: 400px;
+    background: rgba(0, 163, 237, 0.3);
+    padding: 0px
+}

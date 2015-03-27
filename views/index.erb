@@ -5,6 +5,7 @@
     <title>Document</title>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/js/youtube.js" type="text/javascript"></script>
     
     <style type="text/css">
         
@@ -17,69 +18,12 @@
   <body>
 
 <center>
-   
-
-
+ 
+<h1>管理画面</h1>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
+     
 
-    <script>
-// 2. This code loads the IFrame Player API code asynchronously.
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
-var player;
-function onYouTubeIframeAPIReady() {
-  console.log("Hello!");
-  var videoIdJSONStr;
-  $.get("/api/dj", null, function(data) {
-    // videoIdJSONStr = $.parseJSON(data);
-    videoIdJSONStr = data;
-    console.log(videoIdJSONStr)
-      
-      player = new YT.Player('player', {
-        height: '390',
-        width: '640',
-        videoId: videoIdJSONStr,
-        events: {
-          'onReady': onPlayerReady,
-          'onStateChange': onPlayerStateChange
-        }
-      });
-  });
-
-}
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-  event.target.playVideo();
-}
-// 5. The API calls this function when the player's state changes.
-//    The function indicates that when playing a video (state=1),
-//    the player should play for six seconds and then stop.
-//var done = false;
-        
-//var state = ytplayer.getPlayerState();
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.ENDED) {
-      stopVideo();
-//    done = true;
-      videoUrl = player.getVideoUrl();
-      videoUrlArray = videoUrl.split("=");
-      videoId = videoUrlArray[1]
-      
-      $.post("/api/deletesong", {'videoId': videoId});
-      $.get("/api/redirect");
-      
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
-        
-    </script>
     
       </center>
   </body>
