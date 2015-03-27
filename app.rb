@@ -7,13 +7,13 @@ ActiveRecord::Base.configurations = YAML.load_file('database.yml')
 
 require './models/songs.rb'
 
-    set :bind, '192.168.33.10'
-    set :port, 3000
+#    set :bind, '192.168.33.10'
+#    set :port, 3000
 
 
 get '/' do
     'Hello Sintra!'
-    @contents = Song.order("id desc").all
+    @songs = Song.order("id asc").all
     erb :index
     
 end

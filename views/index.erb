@@ -6,25 +6,42 @@
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script src="/js/youtube.js" type="text/javascript"></script>
-    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <style type="text/css">
-        
-        body{background-color: black;
-             color: white;
-            
-        }
-      </style>
+
+body{background-color: black;
+  color: white;
+
+}
+    </style>
   </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 blog-main">
 
-<center>
- 
-<h1>管理画面</h1>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
-     
+          <div id="player"></div>
 
-    
-      </center>
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module">
+            <h4>Playlist</h4>
+            <ol class="list-unstyled">
+              <% @songs.each do |song| %>
+                <li><%= song.url %></li>
+              <% end%>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div><!-- /.row -->
+    </div><!-- /.container -->
   </body>
 </html>
