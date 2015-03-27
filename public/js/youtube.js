@@ -18,7 +18,8 @@ function onYouTubeIframeAPIReady() {
       videoId: videoIdJSONStr,
       events: {
         'onReady': onPlayerReady,
-        'onStateChange': onPlayerStateChange
+        'onStateChange': onPlayerStateChange,
+        'onError': onPlayerError
       }
     });
   });
@@ -69,4 +70,8 @@ function onPlayerStateChange(event) {
 }
 function stopVideo() {
   player.stopVideo();
+}
+
+function onPlayerError(event) {
+    playNext();
 }
