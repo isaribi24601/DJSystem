@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'json'
 require 'uri'
+require 'net/http'
 
 
 
@@ -39,6 +40,7 @@ post '/dj' do
 uri = URI.parse("https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=AIzaSyDNrvNnhX4G9q6twKpYQXcs0gB9UuXgJTg&fields=items(id,snippet(title),statistics)&part=snippet")
 json = Net::HTTP.get(uri)
 result = JSON.parse(json)
+titles = result['items'][0]['snippet']['title']
 
 puts result
     # カラムを追加したDBにタイトルを追加する
