@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'active_record'
 require 'json'
+require 'uri'
+
 
 
 ActiveRecord::Base.configurations = YAML.load_file('database.yml')
@@ -34,8 +36,8 @@ post '/dj' do
     # API叩く
 
     # JSONパース
-url = URL.parse('https://www.googleapis.com/youtube/v3/videos?id={#video_id}&key=AIzaSyDNrvNnhX4G9q6twKpYQXcs0gB9UuXgJTg&fields=items(id,snippet(channelTitle,title,thumbnails),statistics)&part=snippet,contentDetails,statistics')
-json = Net::HTTP.get("url")
+uri = URI.parse("https://www.googleapis.com/youtube/v3/videos?id=#{video_id}&key=AIzaSyDNrvNnhX4G9q6twKpYQXcs0gB9UuXgJTg&fields=items(id,snippet(title),statistics)&part=snippet")
+json = Net::HTTP.get(uri)
 result = JSON.parse(json)
 
 puts result
