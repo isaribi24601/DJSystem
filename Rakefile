@@ -1,3 +1,4 @@
 require 'sinatra/activerecord'
 require 'sinatra/activerecord/rake'
-require './models/djsystem.rb'
+require './models/songs.rb'
+require './app'

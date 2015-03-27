@@ -3,6 +3,8 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'json'
 
+ActiveRecord::Base.configurations = YAML.load_file('database.yml')
+
 require './models/songs.rb'
 
     set :bind, '192.168.33.10'
@@ -16,12 +18,16 @@ get '/' do
     
 end
 
-post '/dj' do
+get '/post' do
+    erb :post
     
+    end
+
+post '/dj' do
     logger.info "URL：#{params[:url]}"
   url = params[:url]
   # urlを分割して、IDだけを取り出す
-  
+
  video_id = url.split("=")[1]
  Song.create(:url => video_id)
 
