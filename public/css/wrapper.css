@@ -1,9 +1,18 @@
-.container {
-    position: absolute;
-    top: 0px;
-    left: 60%;
-    margin-left: -250px;
-    width: 100px;
-    background: rgba(0, 163, 237, 0.3);
-    padding: 0px
+html {
+
+  background: url(/images/web_bg.png) no-repeat center center fixed;
+
+  -webkit-background-size: cover;
+
+  -moz-background-size: cover;
+
+  -o-background-size: cover;
+
+  background-size: cover;
+
+}
+
+div.border {
+    opacity:0.75;
+    
 }
