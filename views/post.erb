@@ -3,6 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>SORACCHI SYSTEM</title>
+    
+    <style type="text/css">
+    
+    input[type=text]{
+width:200px;
+height:10px;
+font-size:1.0em;
+}
+    
+    </style>
+    
 </head>
 <body>
     
@@ -31,12 +42,16 @@ function check(){
 }
     </script>
     
+    <center>
+    
      <h1>SORACCHI SYSTEM</h1>
     <form action="/dj" method="post" name="post" onSubmit="return check()">
-      <p>URL<input type="text" name="url"></p>
+      <p><input type="text" name="url" style=width:500px;height:40px;　placeholder="URLを入力してください"/></p>
       <p><input type="submit" value="投稿"></p>
     </form>
 
+
+    </center>
 
 </body>
 </html>

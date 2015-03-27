@@ -53,21 +53,7 @@ function onYouTubeIframeAPIReady() {
         }
       });
   });
-//  console.log(videoIdJSONStr)
-//  // videoIdJSON = $.parseJSON(videoIdJSONStr);
-//  // videoIdJSON = JSON.parse(videoIdJSONStr);
-//  // console.log(videoIdJSON)
-//  // console.log(videoId);
-//
-//  player = new YT.Player('player', {
-//    height: '390',
-//    width: '640',
-//    videoId: '',
-//    events: {
-//      'onReady': onPlayerReady,
-//      'onStateChange': onPlayerStateChange
-//    }
-//  });
+
 }
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
@@ -76,16 +62,27 @@ function onPlayerReady(event) {
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-var done = false;
+//var done = false;
+        
+//var state = ytplayer.getPlayerState();
 function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
+  if (event.data == YT.PlayerState.ENDED) {
+      stopVideo();
+//    done = true;
+      videoUrl = player.getVideoUrl();
+      videoUrlArray = videoUrl.split("=");
+      videoId = videoUrlArray[1]
+      
+      $.post("/api/deletesong", {'videoId': videoId});
+      $.get("/api/redirect");
+      
+      playVideo();
   }
 }
 function stopVideo() {
   player.stopVideo();
 }
+        
     </script>
     
       </center>

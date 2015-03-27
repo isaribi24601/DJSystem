@@ -43,4 +43,15 @@ get '/api/dj' do
     
 end
 
+post '/api/deletesong' do
+    
+    song = Song.where(url: params[:videoId]).first.destroy
+    
+end
+
+get '/api/redirect' do
+    
+    redirect '/'
+    
+end
     
