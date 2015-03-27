@@ -11,6 +11,7 @@ require './models/songs.rb'
     set :port, 3000
 
 
+
 get '/' do
     'Hello Sintra!'
     @contents = Song.order("id desc").all
