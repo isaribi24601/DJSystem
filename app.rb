@@ -21,7 +21,7 @@ end
 get '/post' do
     erb :post
     
-    end
+end
 
 post '/dj' do
     logger.info "URL：#{params[:url]}"
@@ -31,7 +31,7 @@ post '/dj' do
  video_id = url.split("=")[1]
  Song.create(:url => video_id)
 
-redirect '/'
+redirect '/post'
     
 end
 

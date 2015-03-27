@@ -18,11 +18,7 @@
 
 <center>
    
-   <h1>SORACCHI SYSTEM</h1>
-    <form action="/dj" method="post">
-      <p>URL<input type="text" name="url"></p>
-      <p><input type="submit" value="投稿"></p>
-    </form>
+
 
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player"></div>
@@ -81,15 +77,10 @@ function onPlayerReady(event) {
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
 var done = false;
-function onPlayerStateChange(event) {
-  if (event.data == YT.PlayerState.PLAYING && !done) {
-    setTimeout(stopVideo, 6000);
-    done = true;
-  }
-}
-function stopVideo() {
-  player.stopVideo();
-}
+
+        function getPlayStatus() {
+        }
+        
     </script>
     
       </center>

@@ -2,13 +2,37 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>SORACCHI SYSTEM</title>
 </head>
 <body>
     
+<script>
+function check(){
+
+	var flag = 0;
+
+	// 設定開始（必須にする項目を設定してください）
+	if(document.post.url.value == ""){ // 「お名前」の入力をチェック
+
+		flag = 1;
+
+    }
+	// 設定終了
+	if(flag){
+
+		window.alert('URLを入力してください'); // 入力漏れがあれば警告ダイアログを表示
+		return false; // 送信を中止
+	}
+	else{
+
+        window.alert('送信を完了しましたs');
+		return true; // 送信を実行
+	}
+}
+    </script>
     
      <h1>SORACCHI SYSTEM</h1>
-    <form action="/dj" method="post">
+    <form action="/dj" method="post" name="post" onSubmit="return check()">
       <p>URL<input type="text" name="url"></p>
       <p><input type="submit" value="投稿"></p>
     </form>
