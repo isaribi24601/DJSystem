@@ -38,6 +38,7 @@ end
 get '/api/dj' do
     # Songから最初の１件を取り出す
    data = Song.first[:url]
+    Song.first.destroy
     p data
     data
     

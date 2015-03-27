@@ -39,10 +39,7 @@ function onYouTubeIframeAPIReady() {
     // videoIdJSONStr = $.parseJSON(data);
     videoIdJSONStr = data;
     console.log(videoIdJSONStr)
-      // videoIdJSON = $.parseJSON(videoIdJSONStr);
-      // videoIdJSON = JSON.parse(videoIdJSONStr);
-      // console.log(videoIdJSON)
-      // console.log(videoId);
+      
       player = new YT.Player('player', {
         height: '390',
         width: '640',
@@ -76,7 +73,6 @@ function onPlayerStateChange(event) {
       $.post("/api/deletesong", {'videoId': videoId});
       $.get("/api/redirect");
       
-      playVideo();
   }
 }
 function stopVideo() {

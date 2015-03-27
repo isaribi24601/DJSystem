@@ -1,0 +1,58 @@
+.submit_button {
+	display: inline-block;
+	width: 200px;
+	height: 54px;
+    font-size: 1.6em;
+	text-align: center;
+	text-decoration: none;
+	line-height: 54px;
+	outline: none;
+}
+.submit_button::before,
+.submit_button::after {
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: '';
+}
+.submit_button,
+.submit_button::before,
+.submit_button::after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+
+.submit_button {
+	position: relative;
+	z-index: 2;
+	background-color: #333;
+	border: 2px solid #333;
+	color: #fff;
+	line-height: 50px;
+}
+.submit_button:hover {
+	background-color: #fff;
+	border-color: #59b1eb;
+	color: #59b1eb;
+}
+.submit_button::before,
+.submit_button::after {
+	top: 0;
+	width: 50%;
+	height: 100%;
+	background-color: #333;
+}
+.submit_button::before {
+	right: 0;
+}
+.submit_button::after {
+	left: 0;
+}
+.submit_button:hover::before,
+.submit_button:hover::after {
+	width: 0;
+	background-color: #59b1eb;
+}

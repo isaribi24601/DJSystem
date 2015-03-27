@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>SORACCHI SYSTEM</title>
-    
+<link rel="stylesheet" type="text/css" href="/css/button.css">
     <style type="text/css">
     
     input[type=text]{
-width:200px;
-height:10px;
-font-size:1.0em;
-}
-    
-    </style>
-    
+        width:200px;
+        height:10px;
+        font-size:1.0em;
+    }
+        #container{
+
+  width: 960px;
+  margin: 0 auto;
+      
+        }
+    </style>    
 </head>
+
 <body>
-    
+   
+   <font color="#333333">
+    <div style="border-style: solid; border-width: 4px; padding: 30px 30px 30px 30px;">
 <script>
 function check(){
 
 	var flag = 0;
 
 	// 設定開始（必須にする項目を設定してください）
-	if(document.post.url.value == ""){ // 「お名前」の入力をチェック
+	if(document.post.url.value == ""){
 
 		flag = 1;
 
@@ -31,12 +38,12 @@ function check(){
 	// 設定終了
 	if(flag){
 
-		window.alert('URLを入力してください'); // 入力漏れがあれば警告ダイアログを表示
+		window.alert('URLを入力してください'); 
 		return false; // 送信を中止
 	}
 	else{
 
-        window.alert('送信を完了しましたs');
+        window.alert('送信を完了しました');
 		return true; // 送信を実行
 	}
 }
@@ -44,14 +51,16 @@ function check(){
     
     <center>
     
-     <h1>SORACCHI SYSTEM</h1>
+    <img src="/images/web_logo.png">
     <form action="/dj" method="post" name="post" onSubmit="return check()">
-      <p><input type="text" name="url" style=width:500px;height:40px;　placeholder="URLを入力してください"/></p>
-      <p><input type="submit" value="投稿"></p>
+      <p><input type="text" name="url" style=width:500px;height:40px; placeholder="URLを入力してください"></p>
+      <p><button class="submit_button" type="submit">投稿</button></p>
     </form>
 
 
     </center>
+    </div>
 
+    </font>
 </body>
 </html>
