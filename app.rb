@@ -3,6 +3,7 @@ require 'sinatra/reloader'
 require 'active_record'
 require 'json'
 
+
 ActiveRecord::Base.configurations = YAML.load_file('database.yml')
 
 require './models/songs.rb'
@@ -30,7 +31,17 @@ post '/dj' do
   # urlを分割して、IDだけを取り出す
 
  video_id = url.split("=")[1]
- Song.create(:url => video_id)
+    # API叩く
+
+    # JSONパース
+url = URL.parse('https://www.googleapis.com/youtube/v3/videos?id={#video_id}&key=AIzaSyDNrvNnhX4G9q6twKpYQXcs0gB9UuXgJTg&fields=items(id,snippet(channelTitle,title,thumbnails),statistics)&part=snippet,contentDetails,statistics')
+json = Net::HTTP.get("url")
+result = JSON.parse(json)
+
+puts result
+    # カラムを追加したDBにタイトルを追加する
+ Song.create(:url => video_id,
+             :title => titles)
 
 redirect '/post'
     
