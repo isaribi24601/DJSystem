@@ -33,7 +33,7 @@ body{background-color: black;
           <div class="sidebar-module">
             <h4>Playlist</h4>
             <ol class="list-unstyled">
-              <% @song.each do |song| %>
+              <% @contents.each do |song| %>
                 <li><%= song.title %></li>
               <% end%>
             </ol>
